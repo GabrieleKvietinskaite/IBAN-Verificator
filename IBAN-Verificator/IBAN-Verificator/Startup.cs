@@ -1,3 +1,4 @@
+using IBAN_Verificator.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,7 +25,7 @@ namespace IBAN_Verificator
             {
                 setupAction.ReturnHttpNotAcceptable = true;
             });
-
+            services.AddScoped<IIbanRepository, IbanRepository>();
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
