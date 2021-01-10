@@ -6,6 +6,6 @@ namespace IBAN_Verificator.Repositories
     public interface IIbanRepository
     {
         IbanResponse CheckIban(string iban);
-        List<IbanResponse> CheckIbans(string ibans);
+        List<IbanResponse> CheckIbans(string[] ibans);
     }
 }

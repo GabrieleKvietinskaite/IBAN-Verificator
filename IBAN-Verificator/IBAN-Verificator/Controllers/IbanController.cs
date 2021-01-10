@@ -17,18 +17,18 @@ namespace IBAN_Verificator.Controllers
                 throw new ArgumentNullException(nameof(ibanRepository));
         }
 
-        [HttpGet("iban")]
-        public ActionResult<string> CheckIban()
+        [HttpPost("iban")]
+        public ActionResult<IbanResponse> CheckIban([FromBody] string iban)
         {
-            var result = this.IbanRepository.CheckIban("LT517180077788877777");
+            var result = this.IbanRepository.CheckIban(iban);
 
             return Ok(result);
         }
         
-        [HttpGet("ibans")]
-        public ActionResult<List<IbanResponse>> CheckIbans()
+        [HttpPost("ibans")]
+        public ActionResult<List<IbanResponse>> CheckIbans([FromBody] string[] ibans)
         {
-            var result = this.IbanRepository.CheckIbans("AA051245445454552117989:LT647044001231465456:LT517044077788877777");
+            var result = this.IbanRepository.CheckIbans(ibans);
 
             return Ok(result);
         }

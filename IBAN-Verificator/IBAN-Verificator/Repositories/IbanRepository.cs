@@ -38,12 +38,11 @@ namespace IBAN_Verificator.Repositories
             };
         } 
 
-        public List<IbanResponse> CheckIbans(string ibans)
+        public List<IbanResponse> CheckIbans(string[] ibans)
         {
-            var splittedIbans = ibans.Split(":");
             var results = new List<IbanResponse>();
 
-            foreach (string iban in splittedIbans)
+            foreach (string iban in ibans)
             {
                 results.Add(CheckIban(iban));
             }
