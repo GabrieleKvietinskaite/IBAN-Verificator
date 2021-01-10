@@ -28,7 +28,7 @@ namespace IBAN_Verificator
             services.AddScoped<IIbanRepository, IbanRepository>();
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                configuration.RootPath = "wwwroot";
             });
         }
 
@@ -59,12 +59,7 @@ namespace IBAN_Verificator
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
-                {
-                    spa.UseAngularCliServer(npmScript: "start");
-                }
+                spa.Options.SourcePath = "wwwroot";
             });
         }
     }
